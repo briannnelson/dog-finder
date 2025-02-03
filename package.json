@@ -1,8 +1,9 @@
 {
-  "name": "my-app",
-  "private": true,
-  "version": "0.0.0",
+  "name": "dog-finder",
+  "private": false,
+  "version": "1.0.0",
   "type": "module",
+  "author": "Brian Nelson",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
