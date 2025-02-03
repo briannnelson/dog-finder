@@ -52,7 +52,7 @@ export default function Search() {
 
 	return (
 		<div>
-			<h1>Search Dogs</h1>
+			<h2>Search Dogs</h2>
 			<label>Breed: </label>
 			<select
 				value={selectedBreed}

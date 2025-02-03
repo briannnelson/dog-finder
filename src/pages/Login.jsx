@@ -24,7 +24,7 @@ export default function Login() {
 
 	return (
 		<Container style={{ maxWidth: "400px", marginTop: "2rem" }}>
-			<h1 className="mb-4">Login</h1>
+			<h2 className="mb-4">Login</h2>
 			<Form onSubmit={handleSubmit}>
 				<FloatingLabel controlId="formName" label="Name" className="mb-3">
 					<Form.Control
