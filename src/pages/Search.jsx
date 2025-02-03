@@ -60,7 +60,7 @@ export default function Search() {
 	const breedOptions = breeds.map((b) => ({ value: b, label: b }));
 
 	return (
-		<div>
+		<>
 			<Select
 				id="breed-select"
 				options={breedOptions}
@@ -77,6 +77,6 @@ export default function Search() {
 					<DogCard key={dog.id} dog={dog} />
 				))}
 			</div>
-		</div>
+		</>
 	);
 }
