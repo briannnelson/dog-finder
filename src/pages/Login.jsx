@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Form, Button, Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import api from "../api";
 
@@ -22,31 +23,35 @@ export default function Login() {
 	};
 
 	return (
-		<div>
-			<h1>Login</h1>
-			<form onSubmit={handleSubmit}>
-				<div style={{ marginBottom: "1rem" }}>
-					<label>Name:</label>
-					<br />
-					<input
+		<Container style={{ maxWidth: "400px", marginTop: "2rem" }}>
+			<h1 className="mb-4">Login</h1>
+			<Form onSubmit={handleSubmit}>
+				<Form.Group className="mb-3" controlId="formName">
+					<Form.Label>Name</Form.Label>
+					<Form.Control
 						type="text"
+						placeholder="Enter your name"
 						value={name}
 						onChange={(e) => setName(e.target.value)}
 						required
 					/>
-				</div>
-				<div style={{ marginBottom: "1rem" }}>
-					<label>Email:</label>
-					<br />
-					<input
+				</Form.Group>
+
+				<Form.Group className="mb-3" controlId="formEmail">
+					<Form.Label>Email</Form.Label>
+					<Form.Control
 						type="email"
+						placeholder="Enter your email"
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
 						required
 					/>
-				</div>
-				<button type="submit">Login</button>
-			</form>
-		</div>
+				</Form.Group>
+
+				<Button variant="primary" type="submit">
+					Login
+				</Button>
+			</Form>
+		</Container>
 	);
 }
