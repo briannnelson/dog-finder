@@ -1,1 +1,69 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
+
+$primary: #4978b1;
+
+.css-1nmdiq5-menu {
+	z-index: 3 !important;
+	margin-top: 0px !important;
+	border-radius: 15px !important;
+	padding: 7px 0 !important;
+
+	::-webkit-scrollbar {
+		-webkit-appearance: none;
+		width: 9px;
+		height: 9px;
+		background-color: transparent;
+	
+		&-thumb {
+			border-radius: 10px;
+			background-color: #a4bcd8;
+	
+			&:hover {
+				background-color: lighten(#a4bcd8,5%);
+			}
+		
+			&:active {
+				background-color: darken(#a4bcd8,5%);
+			}
+		}
+	}
+}
+
+.css-1u9des2-indicatorSeparator {
+	display: none !important;
+}
+
+.css-1xc3v61-indicatorContainer {
+	color: #dde2ef !important;
+}
+
+.css-art2ul-ValueContainer2 {
+	padding: 11px 0.75rem !important;
+}
+
+.css-1jqq78o-placeholder {
+	color: #212529 !important;
+}
+
+.css-13cymwt-control {
+	border: 2px solid #dde2ef !important;
+	border-radius: 15px !important;
+}
+
+.css-t3ipsp-control {
+	border-radius: 15px !important;
+	border: 2px solid #a4bcd8 !important;
+	box-shadow: 0 0 0 0.25rem rgba($primary, 0.25) !important;
+}
+
+.css-d7l1ni-option {
+	background-color: rgba(#4978b1,0.1) !important;
+}
+
+.css-tr4s17-option {
+	background-color: #4978b1 !important;
+}
+
+.css-15lsz6c-indicatorContainer {
+	color: #a4bcd8 !important;
+}
