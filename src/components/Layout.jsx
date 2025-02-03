@@ -1,8 +1,10 @@
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { Container, Button } from "react-bootstrap";
-import api from "../api";
 import { useContext } from "react";
 import { UserContext } from "../context/UserContext.jsx";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
+import api from "../api";
 
 export default function Layout() {
 	const location = useLocation();
@@ -23,16 +25,15 @@ export default function Layout() {
 		<Container>
 			{location.pathname === "/search" && (
 				<div className="d-flex justify-content-between align-items-center my-2">
-					<div>
-						{user?.name ? `Hi ${user.name}!` : null}
-					</div>
+					<div>{user?.name ? `Hi ${user.name}!` : null}</div>
 					<div>
 						<Button
 							variant="outline-secondary"
 							onClick={handleLogout}
 							size="sm"
 						>
-							Logout
+							<FontAwesomeIcon icon={faRightFromBracket} className="me-2" />
+							Log Out
 						</Button>
 					</div>
 				</div>
