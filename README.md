@@ -1,10 +1,7 @@
 <div align="center" name="top">
 
 # DogFinder
-### Dog Adoption Search
 </div>
-
-<br>
 
 A simple page web application that allows you to log in and search for adoptable dogs from a remote service. You can filter results by breed and sort them alphabetically (ascending or descending). When you’re done browsing, generate a single “match” from your selected favorites.
 
@@ -17,7 +14,21 @@ A simple page web application that allows you to log in and search for adoptable
 
 ## Getting Started
 
-Clone this repository
+1. Clone this repository
    ```bash
    git clone https://github.com/briannnelson/dog-finder.git
    cd dog-adoption-search
+   ```
+
+2. Install dependencies
+
+   ```bash
+   npm install
+   ```
+
+3. Run the development server
+   ```bash
+   npm start
+   ```
+   This will start the app on http://localhost:5173.
+
