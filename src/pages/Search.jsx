@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Select from "react-select";
 import DogCard from "../components/DogCard";
 import api from "../api";
 
 export default function Search() {
 	const [breeds, setBreeds] = useState([]);
 	const [selectedBreed, setSelectedBreed] = useState("");
-	const [dogIds, setDogIds] = useState([]);
 	const [dogs, setDogs] = useState([]);
 	const navigate = useNavigate();
 
@@ -25,49 +25,53 @@ export default function Search() {
 		fetchBreeds();
 	}, [navigate]);
 
-	const handleSearch = async () => {
-		try {
-			const searchResponse = await api.get("/dogs/search", {
-				params: {
-					breeds: selectedBreed,
-					sort: "breed:asc",
-					size: 25,
-				},
-			});
-			const ids = searchResponse.data.resultIds;
-			setDogIds(ids);
-			if (ids.length > 0) {
-				const dogResponse = await api.post("/dogs", ids);
-				setDogs(dogResponse.data);
-			} else {
+	useEffect(() => {
+		const handleSearch = async () => {
+			if (!selectedBreed) {
 				setDogs([]);
+				return;
 			}
-		} catch (err) {
-			console.error("Search error:", err);
-			if (err.response?.status === 401) {
-				navigate("/login");
+			try {
+				const searchResponse = await api.get("/dogs/search", {
+					params: {
+						breeds: selectedBreed,
+						sort: "breed:asc",
+						size: 25,
+					},
+				});
+
+				const ids = searchResponse.data.resultIds;
+				if (ids.length > 0) {
+					const dogResponse = await api.post("/dogs", ids);
+					setDogs(dogResponse.data);
+				} else {
+					setDogs([]);
+				}
+			} catch (err) {
+				console.error("Search error:", err);
+				if (err.response?.status === 401) {
+					navigate("/login");
+				}
 			}
-		}
-	};
+		};
+		handleSearch();
+	}, [selectedBreed, navigate]);
+
+	const breedOptions = breeds.map((b) => ({ value: b, label: b }));
 
 	return (
 		<div>
-			<h2>Search Dogs</h2>
-			<label>Breed: </label>
-			<select
-				value={selectedBreed}
-				onChange={(e) => setSelectedBreed(e.target.value)}
-			>
-				<option value="">-- Select Breed --</option>
-				{breeds.map((b) => (
-					<option key={b} value={b}>
-						{b}
-					</option>
-				))}
-			</select>
-			<button onClick={handleSearch} style={{ marginLeft: "1rem" }}>
-				Search
-			</button>
+			<Select
+				id="breed-select"
+				options={breedOptions}
+				value={
+					selectedBreed ? { value: selectedBreed, label: selectedBreed } : null
+				}
+				onChange={(option) => setSelectedBreed(option?.value || "")}
+				isClearable
+				isSearchable
+				placeholder="Select a breed"
+			/>
 			<div style={{ marginTop: "2rem" }}>
 				<h3>Results</h3>
 				{dogs.map((dog) => (
