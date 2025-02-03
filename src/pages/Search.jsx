@@ -108,7 +108,6 @@ export default function Search() {
 	};
 
 	const breedOptions = breeds.map((b) => ({ value: b, label: b }));
-
 	const resultsReady = searchMeta.total > 0
 
 	return (
@@ -131,7 +130,7 @@ export default function Search() {
 			</div>
 
 			{resultsReady && (
-				<div className="mt-3">
+				<div className="mt-3 d-flex align-items-center justify-content-center">
 					<span className="me-3">
 						Favorites: <strong>{favorites.length}</strong>
 					</span>
@@ -147,13 +146,13 @@ export default function Search() {
 			)}
 
 			{matchDog && (
-				<div className="mt-4 p-3 border border-success rounded">
-					<h5>You matched with:</h5>
+				<div className="mt-4 p-3 border border-success rounded d-flex flex-column align-items-center">
+					<h5 className="text-success">You matched with:</h5>
 					<DogCard dog={matchDog} />
 				</div>
 			)}
 
-			<div className="mt-4 d-flex flex-wrap">
+			<div className="mt-4 d-flex flex-wrap justify-content-center">
 				{dogs.map((dog) => (
 					<div
 						key={dog.id}
@@ -193,7 +192,7 @@ export default function Search() {
 						← Prev
 					</button>
 					<span className="mx-2 align-self-center">
-						Found <strong>{searchMeta.total}</strong> total dogs
+						Found <strong>{searchMeta.total}</strong> total dogs for this breed
 					</span>
 					<button
 						type="button"

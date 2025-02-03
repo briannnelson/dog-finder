@@ -6,7 +6,7 @@ export default function DogCard({ dog }) {
 			<img
 				src={dog.img}
 				alt={dog.name}
-				style={{ width: "100%", objectFit: "cover", marginBottom: "0.5rem" }}
+				style={{ width: "100%", objectFit: "cover", marginBottom: "0.5rem", maxWidth: "220px" }}
 			/>
 			<div>
 				<strong>Name:</strong> {dog.name}
