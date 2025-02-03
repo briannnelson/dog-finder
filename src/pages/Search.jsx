@@ -73,7 +73,6 @@ export default function Search() {
 				placeholder="Select a breed"
 			/>
 			<div style={{ marginTop: "2rem" }}>
-				<h3>Results</h3>
 				{dogs.map((dog) => (
 					<DogCard key={dog.id} dog={dog} />
 				))}
