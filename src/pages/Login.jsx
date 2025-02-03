@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Form, Button, Container } from "react-bootstrap";
+import { Form, Button, Container, FloatingLabel } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import api from "../api";
 
@@ -26,8 +26,7 @@ export default function Login() {
 		<Container style={{ maxWidth: "400px", marginTop: "2rem" }}>
 			<h1 className="mb-4">Login</h1>
 			<Form onSubmit={handleSubmit}>
-				<Form.Group className="mb-3" controlId="formName">
-					<Form.Label>Name</Form.Label>
+				<FloatingLabel controlId="formName" label="Name" className="mb-3">
 					<Form.Control
 						type="text"
 						placeholder="Enter your name"
@@ -35,10 +34,8 @@ export default function Login() {
 						onChange={(e) => setName(e.target.value)}
 						required
 					/>
-				</Form.Group>
-
-				<Form.Group className="mb-3" controlId="formEmail">
-					<Form.Label>Email</Form.Label>
+				</FloatingLabel>
+				<FloatingLabel controlId="formEmail" label="Email" className="mb-3">
 					<Form.Control
 						type="email"
 						placeholder="Enter your email"
@@ -46,9 +43,8 @@ export default function Login() {
 						onChange={(e) => setEmail(e.target.value)}
 						required
 					/>
-				</Form.Group>
-
-				<Button variant="primary" type="submit">
+				</FloatingLabel>
+				<Button variant="primary" type="submit" className="w-100" size="lg">
 					Login
 				</Button>
 			</Form>
