@@ -1,3 +1,4 @@
+@use "sass:color";
 @import "bootstrap/dist/css/bootstrap.min.css";
 
 $primary: #4978b1;
@@ -13,17 +14,19 @@ $primary: #4978b1;
 		width: 9px;
 		height: 9px;
 		background-color: transparent;
-	
+
 		&-thumb {
 			border-radius: 10px;
 			background-color: #a4bcd8;
-	
+
 			&:hover {
-				background-color: lighten(#a4bcd8,5%);
+				// Instead of lighten(#a4bcd8, 5%)
+				background-color: color.adjust(#a4bcd8, $lightness: 5%);
 			}
-		
+
 			&:active {
-				background-color: darken(#a4bcd8,5%);
+				// Instead of darken(#a4bcd8, 5%)
+				background-color: color.adjust(#a4bcd8, $lightness: -5%);
 			}
 		}
 	}
@@ -57,11 +60,11 @@ $primary: #4978b1;
 }
 
 .css-d7l1ni-option {
-	background-color: rgba(#4978b1,0.1) !important;
+	background-color: rgba($primary, 0.1) !important;
 }
 
 .css-tr4s17-option {
-	background-color: #4978b1 !important;
+	background-color: $primary !important;
 }
 
 .css-15lsz6c-indicatorContainer {
