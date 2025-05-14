@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import Login from "./pages/Login";
 import Search from "./pages/Search";
@@ -7,7 +7,7 @@ import FavoritesProvider from "./context/FavoritesContext";
 
 function App() {
 	return (
-		<Router>
+		<BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/+$/, "")}>
 			<UserProvider>
 				<FavoritesProvider>
 					<Routes>
@@ -19,7 +19,7 @@ function App() {
 					</Routes>
 				</FavoritesProvider>
 			</UserProvider>
-		</Router>
+		</BrowserRouter>
 	);
 }
 
